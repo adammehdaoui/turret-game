@@ -26,4 +26,21 @@ public class EnemyLife : MonoBehaviour
         //destroy the enemy object
         Destroy(gameObject);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision2d)
+    {
+        if (collision2d.gameObject.tag == "Enemy")
+        {
+            Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), collision2d.gameObject.GetComponent<Collider2D>());
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D triggered)
+    {
+        if (triggered.gameObject.tag == "Bullet")
+        {
+            DealDamages();
+            Destroy(triggered.gameObject);
+        }
+    }
 }

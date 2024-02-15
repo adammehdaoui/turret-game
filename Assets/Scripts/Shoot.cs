@@ -23,6 +23,8 @@ public class Shoot : MonoBehaviour
         //create the bullet
         GameObject bullet = Instantiate(BulletPrefab,CanonEnd.position,CanonEnd.rotation);
         //add the force to move the bullet
-        bullet.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(bulletSpeed, 0f),ForceMode2D.Impulse);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>(); 
+        rb.AddRelativeForce(new Vector2(bulletSpeed, 0f),ForceMode2D.Impulse);
+        rb.gravityScale = 0f;
     }
 }
