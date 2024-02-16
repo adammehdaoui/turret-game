@@ -10,13 +10,26 @@ public class EnemyLife : MonoBehaviour
 
     public void DealDamages()
     {
-        //reduce life
         Life--;
-        //if life is under 0
+        
         if (Life <= 0)
         {
-            //kill the enemy
             Death();
+            
+            if (gameObject.name == "YellowEnemy(Clone)")
+            {
+                gameManager.score++;
+            }
+            if (gameObject.name == "OrangeEnemy(Clone)")
+            {
+                gameManager.score+=2;
+            }
+            if (gameObject.name == "RedEnemy(Clone)")
+            {
+                gameManager.score+=3;
+            }
+            
+            gameManager.scoreValue.text = $"{ gameManager.score}";
         }
     }
 
