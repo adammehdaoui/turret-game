@@ -19,17 +19,15 @@ public class EnemyLife : MonoBehaviour
             if (gameObject.name == "YellowEnemy(Clone)")
             {
                 gameManager.score++;
-            }
-            if (gameObject.name == "OrangeEnemy(Clone)")
+            } else if (gameObject.name == "OrangeEnemy(Clone)")
             {
                 gameManager.score+=2;
-            }
-            if (gameObject.name == "RedEnemy(Clone)")
+            } else if (gameObject.name == "RedEnemy(Clone)")
             {
                 gameManager.score+=3;
             }
             
-            gameManager.scoreValue.text = $"{ gameManager.score}";
+            gameManager.scoreValue.text = $"{gameManager.score}";
         }
     }
 
