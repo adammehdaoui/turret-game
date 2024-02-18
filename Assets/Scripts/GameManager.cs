@@ -14,13 +14,14 @@ public class GameManager : MonoBehaviour
     public Text scoreValue; //text used to show score to player
 
 
-    public GameObject Message; //game object used to show the game status to player
+    public GameObject Message; //game object used to wrap the game status with background
     
     public Text GameStatus; //text used to show the game status to player
 
     public void Start()
     {
         Message.SetActive(false);
+        // Set the gameobject to inactive to hide the message and let the player play
     }
     
     public void PlayerIsDeadStopGame()
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
         Message.SetActive(true);
         GameStatus.text = "YOU LOSE!";
         GameStatus.color = Color.red;
+        // Set the gameobject to active to display the lose message
     }
 
     public void PlayerWin()
@@ -37,6 +39,7 @@ public class GameManager : MonoBehaviour
         Message.SetActive(true);
         GameStatus.text = "YOU WIN!";
         GameStatus.color = Color.red;
+        // Set the gameobject to active to display the win message
     }
 
     // Update is called once per frame

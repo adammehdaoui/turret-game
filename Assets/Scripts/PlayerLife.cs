@@ -24,6 +24,7 @@ public class PlayerLife : MonoBehaviour
             //Reduce life
             Life--;
             
+			//Update the life value
             LifeValue.text = $"{Life}";
             
             if (Life <= 0)

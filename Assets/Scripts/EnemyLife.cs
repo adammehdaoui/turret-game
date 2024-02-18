@@ -16,6 +16,7 @@ public class EnemyLife : MonoBehaviour
         {
             Death();
             
+			//Update the score depending on the enemy type
             if (gameObject.name == "YellowEnemy(Clone)")
             {
                 gameManager.score++;
