@@ -13,16 +13,30 @@ public class GameManager : MonoBehaviour
     public int score = 0; //points
     public Text scoreValue; //text used to show score to player
 
-    public Text EndGameText; //text used to show the endgame message
 
+    public GameObject Message; //game object used to show the game status to player
+    
+    public Text GameStatus; //text used to show the game status to player
+
+    public void Start()
+    {
+        Message.SetActive(false);
+    }
+    
     public void PlayerIsDeadStopGame()
     {
         isPlaying = false;
+        Message.SetActive(true);
+        GameStatus.text = "YOU LOSE!";
+        GameStatus.color = Color.red;
     }
 
     public void PlayerWin()
     {
         isPlaying = false;
+        Message.SetActive(true);
+        GameStatus.text = "YOU WIN!";
+        GameStatus.color = Color.red;
     }
 
     // Update is called once per frame
@@ -32,6 +46,7 @@ public class GameManager : MonoBehaviour
         {
             //reduce reamining time at each frame
             RemainingTime -= Time.deltaTime;
+            timeValue.text = $"{RemainingTime:0.00}";
 
             //if the play time is over
             if (RemainingTime <= 0 && isPlaying)
